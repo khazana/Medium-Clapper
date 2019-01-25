@@ -1,0 +1,37 @@
+{
+	"manifest_version": 2,
+
+	"name": "Medium Clapper",
+	"description": "A chrome extension to ease applauding in Medium.",
+	"version": "5.0",
+	"author": "@FathimaKhazana",
+
+
+	"background": {
+		"scripts": ["popup.js"],
+		"persistent": true
+	},
+
+	"permissions": [
+        "tabs",
+        "http://*/",
+        "https://*/",
+        "activeTab",
+        "*://*/*",
+        "webNavigation"
+    ],
+	"browser_action": {
+		"default_icon": "mc-app-icon.png",
+		"default_popup": "popup.html"
+	},
+
+
+
+	"content_scripts": [ {
+  "matches": ["<all_urls>"],
+  "js": ["jquery-3.2.1.min.js","payload.js"],
+  "run_at": "document_end"
+} ]
+
+	
+}
